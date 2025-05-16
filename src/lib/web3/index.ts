@@ -111,7 +111,7 @@ export class Web3 {
     } catch (error) {
       if (
         error instanceof Error &&
-        error.message.includes('Attempt to debit account')
+        error.message.includes('Attempt to debit an account but found no record of a prior credit')
       ) {
         console.debug('[SOLANA] Insufficient balance');
         throw new Error('Insufficient balance');
@@ -181,7 +181,10 @@ export class Web3 {
       autoClose: 750,
     });
 
-    this.transactionsQueue.push(() => this.callTransaction(type));
+    if (this.transactionsQueue.length < 10) {
+      this.transactionsQueue.push(() => this.callTransaction(type));
+    }
+    // this.transactionsQueue.push(() => this.callTransaction(type));
 
     runNextTransaction();
   }
@@ -199,6 +202,7 @@ export class Web3 {
       // Transaction: send
       const txHash = await providerRollup.sendAndConfirm(tx, [], {
         commitment: 'processed',
+        skipPreflight: true,
       });
       console.log('[ROLLUP] Transaction', type, 'txHash:', txHash);
 
