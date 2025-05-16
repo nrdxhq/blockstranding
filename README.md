@@ -1,10 +1,13 @@
+<p align="center">
+  <img src="header.png" alt="README image"/>
+</p>
+
 # Block Stranding
 
-**Block Stranding** is the world’s first survival OMRPG (Onchain Multiplayer RPG) on Solana, built using MagicBlock technology.  
-All game actions are recorded in real time as fast, zero-fee transactions.
+**Block Stranding** is the world’s first survival OMRPG (Onchain Multiplayer RPG) on Solana, built using MagicBlock technology. All game actions are recorded in real time as fast, zero-fee transactions.
 
-**Play (Beta):** https://blockstranding.com
-Explore procedurally generated maps, collect gems, fight mobs, upgrade your character, and farm in-game currency.  
+**Play (Beta):** https://blockstranding.com — Explore procedurally generated maps, collect gems, fight mobs, upgrade your character, and farm in-game currency.
+
 Developed for the Real-Time Hackathon by MagicBlock.
 
 **Twitter:** https://x.com/blockstranding
@@ -27,8 +30,7 @@ This allows Block Stranding to achieve Web2-level responsiveness while remaining
 
 ### Fully Onchain & Gas-Free Gameplay
 
-All game actions — including movement, collecting, combat, and more — are processed and verified directly onchain in real time.  
-Players pay a one-time entry fee of ~0.005 SOL at the start of the game. After that, all gameplay is gas-free.
+All game actions — including movement, collecting, combat, and more — are processed and verified directly onchain in real time. Players pay a one-time entry fee of ~0.005 SOL at the start of the game. After that, all gameplay is gas-free.
 
 ---
 
