@@ -8,6 +8,6 @@ Twitter: https://x.com/blockstranding
 
 ## Installations
 ```
-yarn install
-yarn run build
+npm install
+npm run build
 ```
