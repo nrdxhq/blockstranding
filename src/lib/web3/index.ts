@@ -105,11 +105,30 @@ export class Web3 {
     const signedTx = await wallet.signTransaction(tx);
 
     // Transaction: Send to blockchain
-    const txHash = await providerSolana.sendAndConfirm(signedTx);
-    console.log('[SOLANA] Init player txHash:', txHash);
+    try {
+      const txHash = await providerSolana.sendAndConfirm(signedTx);
+      console.log('[SOLANA] Init player txHash:', txHash);
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.message.includes('Attempt to debit account')
+      ) {
+        console.debug('[SOLANA] Insufficient balance');
+        throw new Error('Insufficient balance');
+      } else if (
+        error instanceof Error &&
+        error.message.includes('insufficient lamports')
+      ) {
+        console.debug('[SOLANA] Insufficient balance');
+        throw new Error('Insufficient balance');
+      } else {
+        console.error('[SOLANA] Init player error:', error);
+        throw new Error('Init player error');
+      }
+    }
 
-    const playerState = await fetchPlayerState(programSolana);
-    console.log('[SOLANA] Player state:', playerState);
+    // const playerState = await fetchPlayerState(programSolana);
+    // console.log('[SOLANA] Player state:', playerState);
   }
 
   public static async undelegate() {
