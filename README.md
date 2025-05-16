@@ -5,3 +5,9 @@ Block Stranding is the world’s first OMRPG (Onchain Multiplayer RPG), built on
 Play (Beta): https://blockstranding.com/
 
 Twitter: https://x.com/blockstranding
+
+## Installations
+```
+yarn install
+yarn run build
+```
